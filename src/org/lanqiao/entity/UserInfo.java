@@ -1,8 +1,6 @@
 package org.lanqiao.entity;
 
-import java.io.Serializable;
-
-public class UserInfo implements Serializable {
+public class UserInfo {
 
 	private int user_id;
 	private String user_name;
