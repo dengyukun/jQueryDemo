@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+
+	<script type="text/javascript">
+	
+		$(function() {
+			
+			
+			$("#username").blur(function() {
+				var url="checkRegExists?method=checkUsername&username="+$(this).val();
+				$("#usernameMsg").load(url);
+			});
+			
+			/*
+			$("#username").blur(function() {
+				var url="checkRegExists";
+				var data={
+						method:"checkUsername",
+						username:$(this).val()
+				};
+				
+				$.post(url,data,function(response){
+					if (response=="yes") {
+						$("#usernameMsg").html("用户名已存在！");
+						$("#username").css("background-color","red");
+					}else{
+						$("#usernameMsg").html("");
+						$("#username").css("background-color","white");
+					}
+				});
+			});
+			*/
+			
+			/*
+			//检测用户名是否存在($.ajax)
+			$("#username").blur(function() {
+				var $username=$(this).val();
+				//开启ajax请求
+				$.ajax({
+					url:"checkRegExists",	//参数1，请求的url
+					type:"POST",			//参数2，请求的方法类型
+					data:{
+						method:"checkUsername",
+						username:$username
+					},
+					success:function(reponse){	//参数3，请求成功的回调函数
+						if (reponse=="yes") {
+							$("#usernameMsg").html("用户名已存在！");
+							$("#username").css("background-color","red");
+						}else{
+							$("#usernameMsg").html("");
+							$("#username").css("background-color","white");
+						}
+					},
+					error:function(){	//参数4，请求失败的回调函数
+						alert("请求失败");
+					}
+				});
+				
+			});
+			*/
+			
+			
+			//检测邮箱是否存在
+			$("#email").blur(function() {
+				//开启ajax请求
+				$.ajax({
+					url:"checkRegExists?method=checkEmail&email="+$(this).val(),	//参数1，请求的url
+					type:"GET",			//参数2，请求的方法类型
+					success:function(reponse){	//参数3，请求成功的回调函数
+						if (reponse=="yes") {
+							$("#emailMsg").html("邮箱已存在！");
+							$("#email").css("background-color","red");
+						}else{
+							$("#emailMsg").html("");
+							$("#email").css("background-color","white");
+						}
+					},
+					error:function(){	//参数4，请求失败的回调函数
+						alert("请求失败");
+					}
+				});
+				
+			});
+			
+			
+		});
+		
+		
+	</script>
+
+	<table>
+		<tr>
+			<td>用户名</td>
+			<td><input type="text" id="username" /></td>
+			<td><div id="usernameMsg"></div></td>
+		</tr>
+		<tr>
+			<td>邮箱</td>
+			<td><input type="text" id="email" /></td>
+			<td><div id="emailMsg"></div></td>
+		</tr>
+	</table>
+
+
+</body>
+</html>

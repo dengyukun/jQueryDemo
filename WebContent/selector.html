@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<link href="css/style.css" />
+</head>
+<body>
+
+<script type="text/javascript">
+
+
+	/*
+	
+	MVC是一种思想:
+		
+		Model（entity、dao、biz）
+		View（jsp、html、android界面、iOS界面）
+		Controller（servlet）
+	
+	*/
+	
+	//基本选择器
+	$(function() {
+		//全局选择器
+		//$("*").css("background-color","red");
+		
+		//类选择器
+		//$(".main").css("background-color","red");
+		
+		//并集选择器
+		//$(".main,h4,h5,#test").css("background-color","yellow");
+		
+		//交集选择器
+		//$("h3.main").css("background-color","yellow");
+		
+	});
+	
+	
+	//层次选择器
+	$(function() {
+		//后代选择器
+		//$("#testDiv h5").css("background-color","yellow");
+		
+		//子选择器
+		//$("#testDiv>span").css("background-color","yellow");
+		
+		//相邻选择器
+		//$("#testDiv+p").css("background-color","yellow");
+		
+		//同辈选择器
+		//$("#testDiv~p").css("background-color","yellow");
+	});
+	
+	
+	//属性选择器
+	$(function() {
+		
+		//根据属性名获取
+		//$("input[value]").css("background-color","yellow");
+		
+		//根据属性值获取
+		//$("[value=java]").css("background-color","yellow");
+		
+		//多属性条件选择
+		//$("input[value][value^=C]").css("background-color","yellow");
+		
+	});
+	
+	//过滤选择器
+	$(function() {
+		$("tr:lt(1)").css("background-color","yellow");
+	});
+	
+	
+	
+</script>
+
+<h1>基本选择器</h1>
+<h3 class="main">轻轻的，我走了</h3>
+<h3 class="main">正如我轻轻的来</h3>
+<h3 id="test">我挥一挥衣袖</h3>
+<h3>不带走一片云彩</h3>
+<h4 class="main">刘德华</h4>
+<h5>张学友</h5>
+<h6>傅园慧</h6>
+
+<br />
+
+<h1>层次选择器</h1>
+<div id="testDiv">
+	<span>自古大神在1楼</span><br />
+	<span>自古SB出2楼</span><br />
+	<h5>最新评论</h5>
+	<h5>热门评论</h5>
+</div>
+<p>相邻11111</p>
+<p>2222222</p>
+<p>相邻-1111111</p>
+
+
+<h1>属性选择器</h1>
+<input type="text" value="java!!!!" /><br />
+<input type="text" /><br />
+<input type="password" /><br />
+<input type="text" value="C++!!!!!!&&Java" /><br />
+
+
+<h1>基本过滤选择器</h1>
+<table width="100%" border="1">
+
+	<tr>
+	<td>000000000000000000000000000000</td>
+	</tr>
+	<tr>
+	<td>11111111111111111111111111111</td>
+	</tr>
+	<tr>
+	<td>222222222222222222222222222222</td>
+	</tr>
+	<tr>
+	<td>33333333333333333333333333333</td>
+	</tr>
+	
+</table>
+
+
+
+</body>
+</html>

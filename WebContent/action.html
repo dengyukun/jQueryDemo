@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+
+
+<script type="text/javascript">
+
+	$(function() {
+		//jQuery代码	
+		//$("#test").hide(3000);
+		
+		$("#table").append(
+				"<tr>"+
+				"<td colspan='2'><input type='submit' value='提交' /></td>"+
+				"</tr>"
+				);
+		
+		//失去焦点事件
+		$("#email").blur(function() {
+			var $email=$("#email").val();
+			alert($email);
+		});
+		
+		//单击事件
+		$("#test").click(function() {
+			$("h2").hide(2000);
+		});
+		
+		
+		//鼠标移入移出事件
+		$("#test").css("background-color","red");
+		$("#test").hover(
+			function() {
+				$("#testMsg").html("我轻轻过来了！");
+			},
+			function() {
+				$("#testMsg").html("我悄悄的走了！");
+			}
+		);
+		
+		
+	});
+	
+	
+	
+	
+	function checkPhone() {
+		var $phone=$("#phone").val();
+		var phoneReg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
+		if(!phoneReg.test($phone)){
+			//手机号码格式不正确
+			$("#phoneMsg").html("<font color='red'>手机号码格式不正确</font>");
+			$("#phone").css("background-color","red");
+			
+		}else{
+			$("#phoneMsg").html("");
+			$("#phone").css("background-color","white");
+		}
+	}
+	
+
+</script>
+
+<h2 id="test">我挥一挥衣袖</h2>
+<h2 id="testMsg"></h2>
+
+<form>
+<table id="table">
+	<tr>
+		<td>手机：<input type="text" id="phone" onblur="checkPhone()" /></td>
+		<td><div id="phoneMsg"></div></td>
+	</tr>
+	<tr>
+		<td>邮箱：<input type="text" id="email" /></td>
+		<td><div id="emailMsg"></div></td>
+	</tr>
+</table>
+</form>
+
+</body>
+</html>
